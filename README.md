@@ -135,7 +135,7 @@ public sealed class CustomersByStatus {
 }
 ```
 
-
+You might notice that the job's structure looks similar to the vertical slices architecture, and that's because that's where most the inspiration came from. This also makes the job completely isolated from any other job in both data querying and processing.
 
 #### Why?
 
