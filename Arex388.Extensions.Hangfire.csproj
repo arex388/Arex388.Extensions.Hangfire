@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Hangfire extensions for implementing the Projection-Result pattern.</Description>
+    <PackageProjectUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</RepositoryUrl>
+    <PackageTags>arex388 hangfire</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire.Console" Version="1.4.2" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.9" />
+  </ItemGroup>
+
+</Project>
