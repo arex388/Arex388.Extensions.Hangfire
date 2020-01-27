@@ -64,7 +64,9 @@ public sealed class CustomersByStatus {
         private DbContext Context { get; set; }
         
         public Job(
-            DbContext context) => Context = context;
+            DbContext context,
+            IMapper mapper) :
+            base(mapper) => Context = context;
             
         public override async Task HandleAsync(
             PerformContext console,
