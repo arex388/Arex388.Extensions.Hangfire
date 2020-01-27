@@ -111,10 +111,12 @@ public sealed class CustomersByStatus {
     
     //  Hangfire
     
-    private static readonly Job Instance = new Job(null);
-    
     public static string Enqueue(
-    	JobParameters parameters) => Instance.Enqueue(parameters);
+    	JobParameters parameters) {
+        var job = new Job(null, null);
+        
+        return job.Enqueue(parameters);
+    }
     
     //  Mappings
     
