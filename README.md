@@ -86,7 +86,7 @@ public sealed class CustomersByStatus {
         }
             
         public override JobDataProjection GetDataProjection(
-        	JobParameters parameters) => new JobDataProjection {
+            JobParameters parameters) => new JobDataProjection {
             Customers = GetCustomers(parameters)
         };
             
