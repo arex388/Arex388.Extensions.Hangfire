@@ -137,6 +137,8 @@ public sealed class CustomersByStatus {
 
 You might notice that the job's structure looks similar to the vertical slices architecture, and that's because that's where most the inspiration came from. This also makes the job completely isolated from any other job in both data querying and processing.
 
+Another benefit is that the enqueuing call is a method on the job's container class so you don't have to call into Hangfire everywhere you want to enqueue this job, you only call the job.
+
 #### Why?
 
 My goal with these extensions is to provide a clear and structured way to create Hangfire jobs and to allow for the most efficient way to query for data needed by the job while also being easy to use.
