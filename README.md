@@ -23,6 +23,116 @@ The extensions are a bit opinionated and require the use of Hangfire.Console.
 
 I typically implement the interfaces as abstract classes I can inherit from. In the abstract classes I inject services such as Entity Framework and [AutoMapper][1]. I use [EntityFramework-Plus][0] for its future queries to build up my projections and then AutoMapper to map them to the final result to use within the job.
 
+Here's an example of a background job that pulls a list of customers by their status from the database, projects the results, and presumably sends them in an email. Abstract classes are included for reference.
+
+```c#
+public abstract class AsyncJob<TParameters> :
+    IAsyncJob<TParameters>
+    where TParameters : class {
+    public abstract Task HandleAsync(
+        PerformContext console,
+        TParameters parameters,
+        CancellationToken cancellationToken);
+}
+
+public abstract class AsyncProjectionJob<TParameters, TDataProjection, TDataResult> :
+    AsyncJob<TParameters>,
+    IAsyncProjectionJob<TParameters, TDataProjection, TDataResult>
+    where TParameters : class
+    where TDataProjection : class
+    where TDataResult : class {
+    protected IMapper Mapper { get; }
+    protected IConfigurationProvider MapperConfig => Mapper.ConfigurationProvider;
+
+    protected AsyncProjectionJob(
+        IMapper mapper) => Mapper = mapper;
+
+    public abstract TDataProjection GetDataProjection(
+        TParameters parameters);
+
+    public TDataResult GetDataResult(
+        TParameters parameters) {
+        var projection = GetDataProjection(parameters);
+
+        return Mapper.Map<TDataResult>(projection);
+    }
+}
+
+public sealed class CustomersByStatus {
+    public sealed class Job :
+        AsyncProjectionJob<JobParameters, JobDataProjection, JobDataResult> {
+        private DbContext Context { get; set; }
+        
+        public Job(
+            DbContext context) => Context = context;
+            
+        public override async Task HandleAsync(
+            PerformContext console,
+            JobParameters parameters,
+            CancellationToken cancellationToken) {
+            var data = GetDataResult(parameters);
+            
+            if (!data.Customers.Any()) {
+                console.Write("No customers were selected.");
+                console.Flush();
+                
+                return;
+            }
+            
+            //  Send email with customers somehow
+            await ...
+        }
+            
+        public override JobDataProjection GetDataProjection(
+        	JobParameters parameters) => new JobDataProjection {
+            Customers = GetCustomers(parameters)
+        };
+            
+        //  Future Queries
+
+        private QueryFutureEnumerable<CustomerProjection> GetCustomers(
+            JobParameters parameters) => Context.Customers.AsNoTracking().Where(
+            c => c.IsActive == parameters.IsActive).ProjectTo<CustomerProjection>(MapperConfig).Future();
+    }
+
+    public sealed class JobParameters {
+        public bool IsActive { get; set; }
+    }
+    
+    public sealed class JobDataProjection {
+        public QueryFutureEnumerable<CustomerProjection> Customers { get; set; }
+    }
+    
+    public sealed class JobDataResult {
+        public IEnumerable<CustomerProjection> Customers { get; set; }
+    }
+    
+    //  Hangfire
+    
+    private static readonly Job Instance = new Job(null);
+    
+    public static string Enqueue(
+    	JobParameters parameters) => Instance.Enqueue(parameters);
+    
+    //  Mappings
+    
+    public sealed class Mappings :
+        AutoMapper.Profile {
+        public Mappings() {
+            CreateMap<Customer, CustomerProjection>();
+        }
+    }
+    
+    //	Models
+    
+    public sealed class CustomerProjection {
+        public string Name { get; set; }
+    }
+}
+```
+
+
+
 #### Why?
 
 My goal with these extensions is to provide a clear and structured way to create Hangfire jobs and to allow for the most efficient way to query for data needed by the job while also being easy to use.
