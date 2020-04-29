@@ -18,6 +18,8 @@ The extensions are a bit opinionated and require the use of Hangfire.Console.
 - `IAsyncJob.Schedule` - Schedule a fire-and-forget background job in the future.
 - `PerformConsole.Flush` - Write an empty line to the console output.
 - `PerformConsole.WriteException` - Write an exception to the console output.
+- `PerformConsole.WriteExceptionAndFlush` - Write an exception and an empty line to the console output.
+- `PerformConsole.WriteLineAndFlush` - Write a value and an empty line to the console output.
 
 #### How to Use
 

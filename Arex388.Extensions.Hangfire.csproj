@@ -6,6 +6,7 @@
     <PackageProjectUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</PackageProjectUrl>
     <RepositoryUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</RepositoryUrl>
     <PackageTags>arex388 hangfire</PackageTags>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
