@@ -6,16 +6,18 @@
     <PackageProjectUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</PackageProjectUrl>
     <RepositoryUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</RepositoryUrl>
     <PackageTags>arex388 hangfire</PackageTags>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DocumentationFile>E:\Software Development\Arex388\Arex388.Extensions.Hangfire\Arex388.Extensions.Hangfire.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Hangfire.Console" Version="1.4.2" />
-    <PackageReference Include="Hangfire.Core" Version="1.7.9" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.11" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
 </Project>

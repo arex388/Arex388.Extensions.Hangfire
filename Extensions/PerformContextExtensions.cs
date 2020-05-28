@@ -1,5 +1,6 @@
 ﻿using Hangfire.Console;
 using System;
+using Newtonsoft.Json;
 
 namespace Hangfire.Server {
     public static class PerformContextExtensions {
@@ -34,6 +35,19 @@ namespace Hangfire.Server {
             string value) {
             console.WriteLine(value);
             console.Flush();
+        }
+
+        /// <summary>
+        /// Write an object as JSON to the console output.
+        /// </summary>
+        public static void WriteObjectAndFlush(
+            this PerformContext console,
+            object obj) {
+            var json = JsonConvert.SerializeObject(obj, Formatting.Indented, new JsonSerializerSettings {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+
+            console.WriteLineAndFlush(json);
         }
     }
 }

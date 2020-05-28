@@ -20,6 +20,7 @@ The extensions are a bit opinionated and require the use of Hangfire.Console.
 - `PerformConsole.WriteException` - Write an exception to the console output.
 - `PerformConsole.WriteExceptionAndFlush` - Write an exception and an empty line to the console output.
 - `PerformConsole.WriteLineAndFlush` - Write a value and an empty line to the console output.
+- `PerformConsole.WriteObjectAndFlush` - Write an object as JSON to the console output.
 
 #### How to Use
 
