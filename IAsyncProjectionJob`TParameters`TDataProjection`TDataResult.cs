@@ -1,14 +1,16 @@
 ﻿using Hangfire.Server;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Arex388.Extensions.Hangfire {
-	/// <summary>
-	/// An asynchronous parameterized projection job.
-	/// </summary>
-	/// <typeparam name="TParameters">The type of parameters container.</typeparam>
-	/// <typeparam name="TDataProjection">The type of data projection container.</typeparam>
-	/// <typeparam name="TDataResult">The type of data result container.</typeparam>
+    /// <summary>
+    /// An asynchronous parameterized projection job.
+    /// </summary>
+    /// <typeparam name="TParameters">The type of parameters container.</typeparam>
+    /// <typeparam name="TDataProjection">The type of data projection container.</typeparam>
+    /// <typeparam name="TDataResult">The type of data result container.</typeparam>
+    [Obsolete("DO NOT USE - Will be removed in the next version.")]
 	public interface IAsyncProjectionJob<in TParameters, out TDataProjection, out TDataResult> {
 		Task HandleAsync(
 			PerformContext console,

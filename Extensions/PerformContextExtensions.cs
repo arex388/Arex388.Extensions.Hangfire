@@ -1,8 +1,11 @@
 ﻿using Hangfire.Console;
-using System;
 using Newtonsoft.Json;
+using System;
 
 namespace Hangfire.Server {
+    /// <summary>
+    /// PerformContext extensions.
+    /// </summary>
     public static class PerformContextExtensions {
         /// <summary>
         /// Write an empty line to the console output.

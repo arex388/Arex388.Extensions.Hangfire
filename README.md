@@ -1,5 +1,9 @@
 # Arex388.Extensions.Hangfire
 
+> **NOTICE**
+>
+> `IAsyncProjectionJob<TDataProjection, TDataResult>` and `IAsyncProjectionJob<TParameters, TDataProjection, TDataResult>` are now deprecated. They were too opinionated about the data access.
+
 A small set of [Hangfire][2] job interfaces for implementing the [Projection-Result pattern][3]. Implement the interfaces in your project so you can inject the appropriate services for your application. Also contains some helper extensions for jobs and Hangfire's `PerformContext` when used with [Hangfire.Console][4] NuGet package.
 
 The extensions are a bit opinionated and require the use of Hangfire.Console.
@@ -8,8 +12,8 @@ The extensions are a bit opinionated and require the use of Hangfire.Console.
 
 - `IAsyncJob` - An asynchronous job.
 - `IAsyncJob<TParameters>` - An asynchronous parameterized job.
-- `IAsyncProjectionJob<TDataProjection, TDataResult>` - An asynchronous projection job.
-- `IAsyncProjectionJob<TParameters, TDataProjection, TDataResult>` - An asynchronous parameterized projection job.
+- `IAsyncProjectionJob<TDataProjection, TDataResult>` - An asynchronous projection job. **DEPRECATED**
+- `IAsyncProjectionJob<TParameters, TDataProjection, TDataResult>` - An asynchronous parameterized projection job. **DEPRECATED**
 
 #### Extensions
 
