@@ -1,24 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Description>Hangfire extensions for implementing the Projection-Result pattern.</Description>
-    <PackageProjectUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</RepositoryUrl>
-    <PackageTags>arex388 hangfire</PackageTags>
-    <Version>1.0.6</Version>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Description>Hangfire extensions for implementing the Projection-Result pattern.</Description>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<LangVersion>latest</LangVersion>
+		<PackageProjectUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</PackageProjectUrl>
+		<PackageTags>arex388 hangfire</PackageTags>
+		<RepositoryUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</RepositoryUrl>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Version>2.0.0</Version>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-    <DocumentationFile>E:\Software Development\Arex388.Extensions.Hangfire\Arex388.Extensions.Hangfire.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+		<DocumentationFile>E:\Software Development\Arex388.Extensions.Hangfire\Arex388.Extensions.Hangfire.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Hangfire.Console" Version="1.4.2" />
-    <PackageReference Include="Hangfire.Core" Version="1.7.24" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Hangfire.Console" Version="1.4.2" />
+		<PackageReference Include="Hangfire.Core" Version="1.7.30" />
+		<PackageReference Include="System.Text.Json" Version="6.0.5" />
+	</ItemGroup>
 
 </Project>

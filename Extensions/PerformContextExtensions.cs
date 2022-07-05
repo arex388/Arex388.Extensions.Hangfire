@@ -1,12 +1,16 @@
 ﻿using Hangfire.Console;
-using Newtonsoft.Json;
 using System;
+using System.Text.Json;
 
 namespace Hangfire.Server {
     /// <summary>
     /// PerformContext extensions.
     /// </summary>
     public static class PerformContextExtensions {
+        private static readonly JsonSerializerOptions _jsonSerializerOptions = new JsonSerializerOptions {
+            WriteIndented = true
+        };
+
         /// <summary>
         /// Write an empty line to the console output.
         /// </summary>
@@ -46,9 +50,7 @@ namespace Hangfire.Server {
         public static void WriteObjectAndFlush(
             this PerformContext console,
             object obj) {
-            var json = JsonConvert.SerializeObject(obj, Formatting.Indented, new JsonSerializerSettings {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            });
+            var json = JsonSerializer.Serialize(obj, _jsonSerializerOptions);
 
             console.WriteLineAndFlush(json);
         }

@@ -16,7 +16,7 @@ namespace Arex388.Extensions.Hangfire {
             );
 
         /// <summary>
-        /// Enqueue a fire-and-forget background job immediately.
+        /// Enqueue a parameterized fire-and-forget background job immediately.
         /// </summary>
         public static string Enqueue<TParameters>(
             this IAsyncJob<TParameters> job,
@@ -32,14 +32,14 @@ namespace Arex388.Extensions.Hangfire {
             string name,
             string cron,
             TimeZoneInfo timeZone = null) => RecurringJob.AddOrUpdate(
-            name,
+                name,
                 () => job.HandleAsync(null, CancellationToken.None),
                 cron,
                 timeZone
             );
 
         /// <summary>
-        /// Recur a background job.
+        /// Recur a parameterized background job.
         /// </summary>
         public static void Recur<TParameters>(
             this IAsyncJob<TParameters> job,
@@ -48,6 +48,7 @@ namespace Arex388.Extensions.Hangfire {
             TimeZoneInfo timeZone = null,
             TParameters parameters = null)
             where TParameters : class => RecurringJob.AddOrUpdate(
+                name,
                 () => job.HandleAsync(null, parameters, CancellationToken.None),
                 cron,
                 timeZone
@@ -64,7 +65,7 @@ namespace Arex388.Extensions.Hangfire {
             );
 
         /// <summary>
-        /// Schedule a fire-and-forget background job in the future.
+        /// Schedule a parameterized fire-and-forget background job in the future.
         /// </summary>
         public static string Schedule<TParameters>(
             this IAsyncJob<TParameters> job,
