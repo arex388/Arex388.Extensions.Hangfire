@@ -1,15 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Description>Hangfire extensions for implementing the Projection-Result pattern.</Description>
+		<Description>Hangfire extensions for structuring background jobs similarly to MediatR's request-response style. It's basically Vertical Slices for Hangfire.</Description>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<IncludeSymbols>true</IncludeSymbols>
 		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
 		<PackageProjectUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</PackageProjectUrl>
 		<PackageTags>arex388 hangfire</PackageTags>
 		<RepositoryUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</RepositoryUrl>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>4.0.2</Version>
-		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<Version>4.0.6</Version>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -20,6 +25,11 @@
 	<ItemGroup>
 		<PackageReference Include="Hangfire.Console" Version="1.4.2" />
 		<PackageReference Include="Hangfire.Core" Version="1.7.36" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+		<PackageReference Include="PolySharp" Version="1.13.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="System.Text.Json" Version="7.0.3" />
 	</ItemGroup>
 

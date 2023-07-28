@@ -1,9 +1,4 @@
-﻿using System;
-using System.Threading;
-
-#nullable enable
-
-namespace Hangfire;
+﻿namespace Hangfire;
 
 /// <summary>
 /// IJobHandler and IJobHandler&lt;TJob&gt; extensions.

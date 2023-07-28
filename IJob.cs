@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-namespace Hangfire;
+﻿namespace Hangfire;
 
 /// <summary>
 /// Marker interface to represent a job payload.

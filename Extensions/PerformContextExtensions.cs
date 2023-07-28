@@ -1,8 +1,5 @@
 ﻿using Hangfire.Console;
-using System;
 using System.Text.Json;
-
-#nullable enable
 
 namespace Hangfire.Server;
 

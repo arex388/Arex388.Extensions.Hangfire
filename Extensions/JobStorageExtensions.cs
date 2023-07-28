@@ -1,9 +1,4 @@
 ﻿using Hangfire.Storage.Monitoring;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-#nullable enable
 
 namespace Hangfire;
 
@@ -38,7 +33,7 @@ public static class JobStorageExtensions {
 			_ =>
 				_.Value.Job.Method.Name == nameof(IJobHandler.HandleAsync)
 				&& _.Value.Job.Method.DeclaringType!.Name == handlerName
-				&& _.Value.Job.Method.DeclaringType.DeclaringType.Namespace == sliceName);
+				&& _.Value.Job.Method.DeclaringType.DeclaringType.Name == sliceName);
 
 		if (predicate is not null) {
 			handlers = handlers.Where(predicate);
