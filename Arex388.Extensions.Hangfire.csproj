@@ -3,7 +3,6 @@
 	<PropertyGroup>
 		<Description>Hangfire extensions for structuring background jobs similarly to MediatR's request-response style. It's basically Vertical Slices for Hangfire.</Description>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<IncludeSymbols>true</IncludeSymbols>
@@ -14,11 +13,10 @@
 		<RepositoryUrl>https://github.com/arex388/Arex388.Extensions.Hangfire</RepositoryUrl>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>4.3.0</Version>
+		<Version>4.4.0</Version>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
 		<DocumentationFile>E:\Software Development\Arex388.Extensions.Hangfire\Arex388.Extensions.Hangfire.xml</DocumentationFile>
 	</PropertyGroup>
 
@@ -26,11 +24,11 @@
 		<PackageReference Include="Hangfire.Console" Version="1.4.3" />
 		<PackageReference Include="Hangfire.Core" Version="1.7.37" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-		<PackageReference Include="PolySharp" Version="1.14.1">
+		<PackageReference Include="PolySharp" Version="1.15.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="System.Text.Json" Version="8.0.3" />
+		<PackageReference Include="System.Text.Json" Version="8.0.5" />
 	</ItemGroup>
 
 </Project>

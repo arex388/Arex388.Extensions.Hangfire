@@ -7,16 +7,16 @@ namespace Hangfire;
 /// </summary>
 /// <typeparam name="TJob">The job's payload.</typeparam>
 public interface IJobHandler<in TJob>
-	where TJob : IJob {
-	/// <summary>
-	/// Handles the job.
-	/// </summary>
-	/// <param name="console">The handler's console instance.</param>
-	/// <param name="job">The job's payload.</param>
-	/// <param name="cancellationToken">The cancellation token.</param>
-	/// <returns>Nothing.</returns>
-	Task HandleAsync(
-		PerformContext console,
-		TJob job,
-		CancellationToken cancellationToken);
+    where TJob : IJob {
+    /// <summary>
+    /// Handles the job.
+    /// </summary>
+    /// <param name="console">The handler's console instance.</param>
+    /// <param name="job">The job's payload.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>Nothing.</returns>
+    Task HandleAsync(
+        PerformContext console,
+        TJob job,
+        CancellationToken cancellationToken);
 }

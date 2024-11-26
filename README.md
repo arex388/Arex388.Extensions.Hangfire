@@ -10,6 +10,8 @@ Arex388.Extensions.Hangfire is an extension library for [Hangfire](https://githu
 > - **v4.0.0** removes the deprecated interfaces and extensions from **v3.0.0**.
 > - **v4.1.0** marks `JobStorageExtensions.CancelScheduled()` as deprecated. They will be removed in **v4.2.0**. Use `JobStorageExtensions.CancelScheduled<THandler>()` instead.
 > - **v4.2.0** removes the deprecated extensions from **v4.1.0**.
+> - **v4.3.0** enhances console write extensions.
+> - **v4.4.0** enhances console write extensions again.
 
 
 
